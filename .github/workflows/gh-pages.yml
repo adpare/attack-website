@@ -32,7 +32,7 @@ jobs:
         run: python3 -m pip install -r requirements.txt
 
       - name: Build website
-        run: python3 update-attack.py --attack-brand --extras --no-test-exitstatus
+        run: python3 update-attack.py --attack-brand --extras resources --no-test-exitstatus
 
       - name: Cleanup build
         run: rm -rf attack-versions
