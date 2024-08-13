@@ -69,7 +69,7 @@ jobs:
           echo "${{ vars.BLUESKY_ID }}" > output/.well-known/atproto-did
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
