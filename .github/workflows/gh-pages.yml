@@ -56,7 +56,7 @@ jobs:
           cd attack-search
           npm ci
           npm run build
-          cp dist/search_bundle.js ../output/theme/scripts/
+          cp dist/search_bundle.js ../output/attack-website/theme/scripts/
           cd ..
 
       - name: Add BlueSky Identification
