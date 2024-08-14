@@ -43,7 +43,7 @@ jobs:
           fi
 
       - name: Build website
-        run: python3 update-attack.py --attack-brand --extras resources --no-test-exitstatus
+        run: python3 update-attack.py --attack-brand --extras resources --subdirectory attack-website/ --no-test-exitstatus
 
       - name: Cleanup build
         run: rm -rf attack-versions
