@@ -70,4 +70,4 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
-          publish_dir: ./attack-website
+          publish_dir: ./output/attack-website
