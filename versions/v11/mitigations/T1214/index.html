@@ -1,0 +1,2872 @@
+
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62667723-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-62667723-1');
+        </script>
+        <meta name="google-site-verification" content="2oJKLqNN62z6AOCb0A0IXGtbQuj-lev5YPAHFF_cbHQ"/>
+
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel='shortcut icon' href="/attack-website/versions/v11/theme/favicon.ico" type='image/x-icon'>
+        <title>Credentials in Registry Mitigation, Mitigation T1214 - Enterprise | MITRE ATT&CK&reg;</title>
+        <!-- Bootstrap CSS -->
+        <link rel='stylesheet' href="/attack-website/versions/v11/theme/style/bootstrap.min.css" />
+        <link rel='stylesheet' href="/attack-website/versions/v11/theme/style/bootstrap-glyphicon.min.css" />
+        <link rel='stylesheet' href="/attack-website/versions/v11/theme/style/bootstrap-tourist.css" />
+        <link rel='stylesheet' href="/attack-website/versions/v11/theme/style/bootstrap-select.min.css" />
+        <link rel="stylesheet" type="text/css" href="/attack-website/versions/v11/theme/style.min.css?a2a04da3">
+
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body>
+
+    <div class="container-fluid attack-website-wrapper d-flex flex-column h-100">
+        <div class="row sticky-top flex-grow-0 flex-shrink-1">
+            <!-- header elements -->
+            <header class="col px-0">
+    
+                    <nav class='navbar navbar-expand-lg navbar-dark position-static'>
+        <a class='navbar-brand' href="/attack-website/versions/v11/"><img src="/attack-website/versions/v11/theme/images/mitre_attack_logo.png" class="attack-logo"></a>
+        <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarCollapse'
+                aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation'>
+                <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='navbarCollapse'>
+            <ul class='nav nav-tabs ml-auto'>
+                        <li class="nav-item">
+                            <a href="/attack-website/versions/v11/matrices/"  class="nav-link" ><b>Matrices</b></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                                
+    <a class="nav-link dropdown-toggle" href="/attack-website/versions/v11/tactics/" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b>Tactics</b>
+    </a>
+    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/attack-website/versions/v11/tactics/enterprise/">Enterprise</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/tactics/mobile/">Mobile</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/tactics/ics/">ICS</a>
+    </div>
+
+
+                        </li>
+                        <li class="nav-item dropdown">
+                                
+    <a class="nav-link dropdown-toggle" href="/attack-website/versions/v11/techniques/" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b>Techniques</b>
+    </a>
+    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/attack-website/versions/v11/techniques/enterprise/">Enterprise</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/techniques/mobile/">Mobile</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/techniques/ics/">ICS</a>
+    </div>
+
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="/attack-website/versions/v11/datasources"  class="nav-link" ><b>Data Sources</b></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                                
+    <a class="nav-link dropdown-toggle" href="/attack-website/versions/v11/mitigations/" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b>Mitigations</b>
+    </a>
+    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/attack-website/versions/v11/mitigations/enterprise/">Enterprise</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/mitigations/mobile/">Mobile</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/mitigations/ics/">ICS</a>
+    </div>
+
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="/attack-website/versions/v11/groups"  class="nav-link" ><b>Groups</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/attack-website/versions/v11/software/"  class="nav-link" ><b>Software</b></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                                
+    <a class="nav-link dropdown-toggle" href="/attack-website/versions/v11/resources/" id="navbarDropdown" role="button"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b>Resources</b>
+    </a>
+    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/attack-website/versions/v11/resources/">General Information</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/resources/getting-started/">Getting Started</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/resources/training/">Training</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/resources/attackcon/">ATT&CKcon</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/resources/working-with-attack/">Working with ATT&CK</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/resources/faq/">FAQ</a>
+                <a class="dropdown-item" href="/attack-website/resources/updates/">Updates</a>
+                <a class="dropdown-item" href="/attack-website/resources/versions/">Versions of ATT&CK</a>
+                <a class="dropdown-item" href="/attack-website/versions/v11/resources/related-projects/">Related Projects</a>
+    </div>
+
+
+                        </li>
+                        <li class="nav-item">
+                                <a href="https://medium.com/mitre-attack/" target="_blank" class="nav-link">
+        <b>Blog</b>&nbsp;
+        <img src="/attack-website/versions/v11/theme/images/external-site.svg" alt="External site" class="external-icon" />
+    </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="/attack-website/versions/v11/resources/contribute/"  class="nav-link" ><b>Contribute</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="search-button" class="btn search-button">Search <div class="search-icon"></div></button>
+                        </li>
+            </ul>
+        </div>
+    </nav>
+
+            </header>
+        </div>
+        <div class="row flex-grow-0 flex-shrink-1">
+            <!-- banner elements -->
+            <div class="col px-0">
+                <!-- don't edit or remove the line below even though it's commented out, it gets parsed and replaced by the versioning feature -->
+                <div class="container-fluid version-banner"><div class="icon-inline baseline mr-1"><img src="/attack-website/versions/v11/theme/images/icon-warning-24px.svg"></div>Currently viewing <a href="https://github.com/mitre/cti/releases/tag/ATT%26CK-v11.3" target="_blank">ATT&CK v11.3</a> which was live between April 25, 2022 and October 24, 2022. <a href="/attack-website/resources/versions/">Learn more about the versioning system</a> or <a href="/attack-website/">see the live site</a>.</div>
+            </div>
+        </div>
+        <div class="row flex-grow-1 flex-shrink-0">
+            <!-- main content elements -->
+            <!--start-indexing-for-search-->
+
+ 
+     
+    <div class="sidebar nav sticky-top flex-column col-xl-3 col-lg-3 col-md-4 pr-0 pt-4 pb-3 pl-3 border-right" id="v-tab" role="tablist" aria-orientation="vertical">
+<!--stop-indexing-for-search-->
+<div class="side-nav-desktop-view h-100">
+        <div class="sidenav-wrapper">
+    <div class="heading" id="v-home-tab" aria-selected="false">MITIGATIONS</div>
+    <div class="sidenav-list">
+        
+            
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="enterprise">
+                <a href="/attack-website/versions/v11/mitigations/enterprise/">
+                    Enterprise
+                </a>
+            <div class="expand-button collapsed" id="enterprise-header" data-toggle="collapse" data-target="#enterprise-body" aria-expanded="false" aria-controls="#enterprise-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="enterprise-body" aria-labelledby="enterprise-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Account Use Policies">
+                <a href="/attack-website/versions/v11/mitigations/M1036/">
+                    Account Use Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Active Directory Configuration">
+                <a href="/attack-website/versions/v11/mitigations/M1015/">
+                    Active Directory Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Antivirus/Antimalware">
+                <a href="/attack-website/versions/v11/mitigations/M1049/">
+                    Antivirus/Antimalware
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Application Developer Guidance">
+                <a href="/attack-website/versions/v11/mitigations/M1013/">
+                    Application Developer Guidance
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Application Isolation and Sandboxing">
+                <a href="/attack-website/versions/v11/mitigations/M1048/">
+                    Application Isolation and Sandboxing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Audit">
+                <a href="/attack-website/versions/v11/mitigations/M1047/">
+                    Audit
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Behavior Prevention on Endpoint">
+                <a href="/attack-website/versions/v11/mitigations/M1040/">
+                    Behavior Prevention on Endpoint
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Boot Integrity">
+                <a href="/attack-website/versions/v11/mitigations/M1046/">
+                    Boot Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Code Signing">
+                <a href="/attack-website/versions/v11/mitigations/M1045/">
+                    Code Signing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Credential Access Protection">
+                <a href="/attack-website/versions/v11/mitigations/M1043/">
+                    Credential Access Protection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Data Backup">
+                <a href="/attack-website/versions/v11/mitigations/M1053/">
+                    Data Backup
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Data Loss Prevention">
+                <a href="/attack-website/versions/v11/mitigations/M1057/">
+                    Data Loss Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Disable or Remove Feature or Program">
+                <a href="/attack-website/versions/v11/mitigations/M1042/">
+                    Disable or Remove Feature or Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Do Not Mitigate">
+                <a href="/attack-website/versions/v11/mitigations/M1055/">
+                    Do Not Mitigate
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Encrypt Sensitive Information">
+                <a href="/attack-website/versions/v11/mitigations/M1041/">
+                    Encrypt Sensitive Information
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Environment Variable Permissions">
+                <a href="/attack-website/versions/v11/mitigations/M1039/">
+                    Environment Variable Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Execution Prevention">
+                <a href="/attack-website/versions/v11/mitigations/M1038/">
+                    Execution Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Exploit Protection">
+                <a href="/attack-website/versions/v11/mitigations/M1050/">
+                    Exploit Protection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Filter Network Traffic">
+                <a href="/attack-website/versions/v11/mitigations/M1037/">
+                    Filter Network Traffic
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Limit Access to Resource Over Network">
+                <a href="/attack-website/versions/v11/mitigations/M1035/">
+                    Limit Access to Resource Over Network
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Limit Hardware Installation">
+                <a href="/attack-website/versions/v11/mitigations/M1034/">
+                    Limit Hardware Installation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Limit Software Installation">
+                <a href="/attack-website/versions/v11/mitigations/M1033/">
+                    Limit Software Installation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Multi-factor Authentication">
+                <a href="/attack-website/versions/v11/mitigations/M1032/">
+                    Multi-factor Authentication
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Network Intrusion Prevention">
+                <a href="/attack-website/versions/v11/mitigations/M1031/">
+                    Network Intrusion Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Network Segmentation">
+                <a href="/attack-website/versions/v11/mitigations/M1030/">
+                    Network Segmentation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Operating System Configuration">
+                <a href="/attack-website/versions/v11/mitigations/M1028/">
+                    Operating System Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Password Policies">
+                <a href="/attack-website/versions/v11/mitigations/M1027/">
+                    Password Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Pre-compromise">
+                <a href="/attack-website/versions/v11/mitigations/M1056/">
+                    Pre-compromise
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Privileged Account Management">
+                <a href="/attack-website/versions/v11/mitigations/M1026/">
+                    Privileged Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Privileged Process Integrity">
+                <a href="/attack-website/versions/v11/mitigations/M1025/">
+                    Privileged Process Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Remote Data Storage">
+                <a href="/attack-website/versions/v11/mitigations/M1029/">
+                    Remote Data Storage
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Restrict File and Directory Permissions">
+                <a href="/attack-website/versions/v11/mitigations/M1022/">
+                    Restrict File and Directory Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Restrict Library Loading">
+                <a href="/attack-website/versions/v11/mitigations/M1044/">
+                    Restrict Library Loading
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Restrict Registry Permissions">
+                <a href="/attack-website/versions/v11/mitigations/M1024/">
+                    Restrict Registry Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Restrict Web-Based Content">
+                <a href="/attack-website/versions/v11/mitigations/M1021/">
+                    Restrict Web-Based Content
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Software Configuration">
+                <a href="/attack-website/versions/v11/mitigations/M1054/">
+                    Software Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-SSL/TLS Inspection">
+                <a href="/attack-website/versions/v11/mitigations/M1020/">
+                    SSL/TLS Inspection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Threat Intelligence Program">
+                <a href="/attack-website/versions/v11/mitigations/M1019/">
+                    Threat Intelligence Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Update Software">
+                <a href="/attack-website/versions/v11/mitigations/M1051/">
+                    Update Software
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-User Account Control">
+                <a href="/attack-website/versions/v11/mitigations/M1052/">
+                    User Account Control
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-User Account Management">
+                <a href="/attack-website/versions/v11/mitigations/M1018/">
+                    User Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-User Training">
+                <a href="/attack-website/versions/v11/mitigations/M1017/">
+                    User Training
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="enterprise-Vulnerability Scanning">
+                <a href="/attack-website/versions/v11/mitigations/M1016/">
+                    Vulnerability Scanning
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+            
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="mobile">
+                <a href="/attack-website/versions/v11/mitigations/mobile/">
+                    Mobile
+                </a>
+            <div class="expand-button collapsed" id="mobile-header" data-toggle="collapse" data-target="#mobile-body" aria-expanded="false" aria-controls="#mobile-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="mobile-body" aria-labelledby="mobile-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Application Developer Guidance">
+                <a href="/attack-website/versions/v11/mitigations/M1013/">
+                    Application Developer Guidance
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Attestation">
+                <a href="/attack-website/versions/v11/mitigations/M1002/">
+                    Attestation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Deploy Compromised Device Detection Method">
+                <a href="/attack-website/versions/v11/mitigations/M1010/">
+                    Deploy Compromised Device Detection Method
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Encrypt Network Traffic">
+                <a href="/attack-website/versions/v11/mitigations/M1009/">
+                    Encrypt Network Traffic
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Enterprise Policy">
+                <a href="/attack-website/versions/v11/mitigations/M1012/">
+                    Enterprise Policy
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Interconnection Filtering">
+                <a href="/attack-website/versions/v11/mitigations/M1014/">
+                    Interconnection Filtering
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Lock Bootloader">
+                <a href="/attack-website/versions/v11/mitigations/M1003/">
+                    Lock Bootloader
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Security Updates">
+                <a href="/attack-website/versions/v11/mitigations/M1001/">
+                    Security Updates
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-System Partition Integrity">
+                <a href="/attack-website/versions/v11/mitigations/M1004/">
+                    System Partition Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-Use Recent OS Version">
+                <a href="/attack-website/versions/v11/mitigations/M1006/">
+                    Use Recent OS Version
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="mobile-User Guidance">
+                <a href="/attack-website/versions/v11/mitigations/M1011/">
+                    User Guidance
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+            
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ics">
+                <a href="/attack-website/versions/v11/mitigations/ics/">
+                    ICS
+                </a>
+            <div class="expand-button collapsed" id="ics-header" data-toggle="collapse" data-target="#ics-body" aria-expanded="false" aria-controls="#ics-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ics-body" aria-labelledby="ics-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Access Management">
+                <a href="/attack-website/versions/v11/mitigations/M0801/">
+                    Access Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Account Use Policies">
+                <a href="/attack-website/versions/v11/mitigations/M0936/">
+                    Account Use Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Active Directory Configuration">
+                <a href="/attack-website/versions/v11/mitigations/M0915/">
+                    Active Directory Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Antivirus/Antimalware">
+                <a href="/attack-website/versions/v11/mitigations/M0949/">
+                    Antivirus/Antimalware
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Application Developer Guidance">
+                <a href="/attack-website/versions/v11/mitigations/M0913/">
+                    Application Developer Guidance
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Application Isolation and Sandboxing">
+                <a href="/attack-website/versions/v11/mitigations/M0948/">
+                    Application Isolation and Sandboxing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Audit">
+                <a href="/attack-website/versions/v11/mitigations/M0947/">
+                    Audit
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Authorization Enforcement">
+                <a href="/attack-website/versions/v11/mitigations/M0800/">
+                    Authorization Enforcement
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Boot Integrity">
+                <a href="/attack-website/versions/v11/mitigations/M0946/">
+                    Boot Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Code Signing">
+                <a href="/attack-website/versions/v11/mitigations/M0945/">
+                    Code Signing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Communication Authenticity">
+                <a href="/attack-website/versions/v11/mitigations/M0802/">
+                    Communication Authenticity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Data Backup">
+                <a href="/attack-website/versions/v11/mitigations/M0953/">
+                    Data Backup
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Data Loss Prevention">
+                <a href="/attack-website/versions/v11/mitigations/M0803/">
+                    Data Loss Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Disable or Remove Feature or Program">
+                <a href="/attack-website/versions/v11/mitigations/M0942/">
+                    Disable or Remove Feature or Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Encrypt Network Traffic">
+                <a href="/attack-website/versions/v11/mitigations/M0808/">
+                    Encrypt Network Traffic
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Encrypt Sensitive Information">
+                <a href="/attack-website/versions/v11/mitigations/M0941/">
+                    Encrypt Sensitive Information
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Execution Prevention">
+                <a href="/attack-website/versions/v11/mitigations/M0938/">
+                    Execution Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Exploit Protection">
+                <a href="/attack-website/versions/v11/mitigations/M0950/">
+                    Exploit Protection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Filter Network Traffic">
+                <a href="/attack-website/versions/v11/mitigations/M0937/">
+                    Filter Network Traffic
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Human User Authentication">
+                <a href="/attack-website/versions/v11/mitigations/M0804/">
+                    Human User Authentication
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Limit Access to Resource Over Network">
+                <a href="/attack-website/versions/v11/mitigations/M0935/">
+                    Limit Access to Resource Over Network
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Limit Hardware Installation">
+                <a href="/attack-website/versions/v11/mitigations/M0934/">
+                    Limit Hardware Installation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Mechanical Protection Layers">
+                <a href="/attack-website/versions/v11/mitigations/M0805/">
+                    Mechanical Protection Layers
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Minimize Wireless Signal Propagation">
+                <a href="/attack-website/versions/v11/mitigations/M0806/">
+                    Minimize Wireless Signal Propagation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Mitigation Limited or Not Effective">
+                <a href="/attack-website/versions/v11/mitigations/M0816/">
+                    Mitigation Limited or Not Effective
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Multi-factor Authentication">
+                <a href="/attack-website/versions/v11/mitigations/M0932/">
+                    Multi-factor Authentication
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Network Allowlists">
+                <a href="/attack-website/versions/v11/mitigations/M0807/">
+                    Network Allowlists
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Network Intrusion Prevention">
+                <a href="/attack-website/versions/v11/mitigations/M0931/">
+                    Network Intrusion Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Network Segmentation">
+                <a href="/attack-website/versions/v11/mitigations/M0930/">
+                    Network Segmentation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Operating System Configuration">
+                <a href="/attack-website/versions/v11/mitigations/M0928/">
+                    Operating System Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Operational Information Confidentiality">
+                <a href="/attack-website/versions/v11/mitigations/M0809/">
+                    Operational Information Confidentiality
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Out-of-Band Communications Channel">
+                <a href="/attack-website/versions/v11/mitigations/M0810/">
+                    Out-of-Band Communications Channel
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Password Policies">
+                <a href="/attack-website/versions/v11/mitigations/M0927/">
+                    Password Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Privileged Account Management">
+                <a href="/attack-website/versions/v11/mitigations/M0926/">
+                    Privileged Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Redundancy of Service">
+                <a href="/attack-website/versions/v11/mitigations/M0811/">
+                    Redundancy of Service
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Restrict File and Directory Permissions">
+                <a href="/attack-website/versions/v11/mitigations/M0922/">
+                    Restrict File and Directory Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Restrict Library Loading">
+                <a href="/attack-website/versions/v11/mitigations/M0944/">
+                    Restrict Library Loading
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Restrict Registry Permissions">
+                <a href="/attack-website/versions/v11/mitigations/M0924/">
+                    Restrict Registry Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Restrict Web-Based Content">
+                <a href="/attack-website/versions/v11/mitigations/M0921/">
+                    Restrict Web-Based Content
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Safety Instrumented Systems">
+                <a href="/attack-website/versions/v11/mitigations/M0812/">
+                    Safety Instrumented Systems
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Software Configuration">
+                <a href="/attack-website/versions/v11/mitigations/M0954/">
+                    Software Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Software Process and Device Authentication">
+                <a href="/attack-website/versions/v11/mitigations/M0813/">
+                    Software Process and Device Authentication
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-SSL/TLS Inspection">
+                <a href="/attack-website/versions/v11/mitigations/M0920/">
+                    SSL/TLS Inspection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Static Network Configuration">
+                <a href="/attack-website/versions/v11/mitigations/M0814/">
+                    Static Network Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Supply Chain Management">
+                <a href="/attack-website/versions/v11/mitigations/M0817/">
+                    Supply Chain Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Threat Intelligence Program">
+                <a href="/attack-website/versions/v11/mitigations/M0919/">
+                    Threat Intelligence Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Update Software">
+                <a href="/attack-website/versions/v11/mitigations/M0951/">
+                    Update Software
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-User Account Management">
+                <a href="/attack-website/versions/v11/mitigations/M0918/">
+                    User Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-User Training">
+                <a href="/attack-website/versions/v11/mitigations/M0917/">
+                    User Training
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Vulnerability Scanning">
+                <a href="/attack-website/versions/v11/mitigations/M0916/">
+                    Vulnerability Scanning
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ics-Watchdog Timers">
+                <a href="/attack-website/versions/v11/mitigations/M0815/">
+                    Watchdog Timers
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+    <div class="side-nav-mobile-view">
+        <div class="sidenav-wrapper">
+    <div class="heading" id="v-home-tab" aria-selected="false">MITIGATIONS</div>
+    <div class="sidenav-list">
+        
+            
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise">
+                <a href="/attack-website/versions/v11/mitigations/enterprise/">
+                    Enterprise
+                </a>
+            <div class="expand-button collapsed" id="Enterprise-header" data-toggle="collapse" data-target="#Enterprise-body" aria-expanded="false" aria-controls="#Enterprise-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-body" aria-labelledby="Enterprise-header">
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-9bcaf824226f4507986441de669eef69">
+                <span>A-C</span>
+            <div class="expand-button collapsed" id="Enterprise-9bcaf824226f4507986441de669eef69-header" data-toggle="collapse" data-target="#Enterprise-9bcaf824226f4507986441de669eef69-body" aria-expanded="false" aria-controls="#Enterprise-9bcaf824226f4507986441de669eef69-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-9bcaf824226f4507986441de669eef69-body" aria-labelledby="Enterprise-9bcaf824226f4507986441de669eef69-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-f4f8e2e1d0ed47debc4c32ce158ea781">
+                <a href="/attack-website/versions/v11/mitigations/M1036/">
+                    Account Use Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-c8e12e957bf94efbb4fad224f03824eb">
+                <a href="/attack-website/versions/v11/mitigations/M1015/">
+                    Active Directory Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-3b35c19e97254b5ca8bd1a509d6d5489">
+                <a href="/attack-website/versions/v11/mitigations/M1049/">
+                    Antivirus/Antimalware
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-87abb8b5913a402baa99c182dbadf990">
+                <a href="/attack-website/versions/v11/mitigations/M1013/">
+                    Application Developer Guidance
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-628acf444281438fa3b73648c3f5c93d">
+                <a href="/attack-website/versions/v11/mitigations/M1048/">
+                    Application Isolation and Sandboxing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-3139f3aeaec74d64924d1d832d9017c0">
+                <a href="/attack-website/versions/v11/mitigations/M1047/">
+                    Audit
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-ece5a15f1b6d4d70a935583a1f5996da">
+                <a href="/attack-website/versions/v11/mitigations/M1040/">
+                    Behavior Prevention on Endpoint
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-42d902d9faaa482381fa2bc7f26c0a84">
+                <a href="/attack-website/versions/v11/mitigations/M1046/">
+                    Boot Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-0ac431eecbf64af495d02a8828dbb3ff">
+                <a href="/attack-website/versions/v11/mitigations/M1045/">
+                    Code Signing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-9bcaf824226f4507986441de669eef69-82ff8ad518d74c259e97f9dc66413c97">
+                <a href="/attack-website/versions/v11/mitigations/M1043/">
+                    Credential Access Protection
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2">
+                <span>D-F</span>
+            <div class="expand-button collapsed" id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-header" data-toggle="collapse" data-target="#Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-body" aria-expanded="false" aria-controls="#Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-body" aria-labelledby="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-b0c9bcd91c3243b2a4643836c2bb7b89">
+                <a href="/attack-website/versions/v11/mitigations/M1053/">
+                    Data Backup
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-505696217c3145368a79bcb84f088d47">
+                <a href="/attack-website/versions/v11/mitigations/M1057/">
+                    Data Loss Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-57f167c60d624134a51fea22fe658d12">
+                <a href="/attack-website/versions/v11/mitigations/M1042/">
+                    Disable or Remove Feature or Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-f173d471cc8a43419ce50bf33fc7d1ee">
+                <a href="/attack-website/versions/v11/mitigations/M1055/">
+                    Do Not Mitigate
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-c1a96eef26fb4decba1df2bfeb7c6daa">
+                <a href="/attack-website/versions/v11/mitigations/M1041/">
+                    Encrypt Sensitive Information
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-2e8f3d1a20dc4a00a0d7bd6fc8615ec7">
+                <a href="/attack-website/versions/v11/mitigations/M1039/">
+                    Environment Variable Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-580d9ea9b8f14a13be2f0897c7060836">
+                <a href="/attack-website/versions/v11/mitigations/M1038/">
+                    Execution Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-e306c708df4448bbbb2354182c427af4">
+                <a href="/attack-website/versions/v11/mitigations/M1050/">
+                    Exploit Protection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-afcc35dfd741400eb8c14ac55c7d3cd2-a1d940c6c678424fb951ffc1bc524be8">
+                <a href="/attack-website/versions/v11/mitigations/M1037/">
+                    Filter Network Traffic
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-7aca272f3e7b43608da3e2e8751485e1">
+                <span>G-I</span>
+            <div class="expand-button collapsed" id="Enterprise-7aca272f3e7b43608da3e2e8751485e1-header" data-toggle="collapse" data-target="#Enterprise-7aca272f3e7b43608da3e2e8751485e1-body" aria-expanded="false" aria-controls="#Enterprise-7aca272f3e7b43608da3e2e8751485e1-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-7aca272f3e7b43608da3e2e8751485e1-body" aria-labelledby="Enterprise-7aca272f3e7b43608da3e2e8751485e1-header">
+                    
+
+<div class="sidenav">
+            <span>No mitigations</span>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-3dd20c670cfb492998782bc034c6ec16">
+                <span>J-L</span>
+            <div class="expand-button collapsed" id="Enterprise-3dd20c670cfb492998782bc034c6ec16-header" data-toggle="collapse" data-target="#Enterprise-3dd20c670cfb492998782bc034c6ec16-body" aria-expanded="false" aria-controls="#Enterprise-3dd20c670cfb492998782bc034c6ec16-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-3dd20c670cfb492998782bc034c6ec16-body" aria-labelledby="Enterprise-3dd20c670cfb492998782bc034c6ec16-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-3dd20c670cfb492998782bc034c6ec16-9ade9552731e4b78b7c4be0c809da442">
+                <a href="/attack-website/versions/v11/mitigations/M1035/">
+                    Limit Access to Resource Over Network
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-3dd20c670cfb492998782bc034c6ec16-94800321c73e491db682d554928cee5f">
+                <a href="/attack-website/versions/v11/mitigations/M1034/">
+                    Limit Hardware Installation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-3dd20c670cfb492998782bc034c6ec16-730b69c27bcf41889576d6a81ccc3b3d">
+                <a href="/attack-website/versions/v11/mitigations/M1033/">
+                    Limit Software Installation
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9">
+                <span>M-O</span>
+            <div class="expand-button collapsed" id="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-header" data-toggle="collapse" data-target="#Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-body" aria-expanded="false" aria-controls="#Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-body" aria-labelledby="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-41cf92f0713c4e25aeff1d64aac72d86">
+                <a href="/attack-website/versions/v11/mitigations/M1032/">
+                    Multi-factor Authentication
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-864d270ee58d46cfa06693c6419bb4c6">
+                <a href="/attack-website/versions/v11/mitigations/M1031/">
+                    Network Intrusion Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-082c719c05fb41a499a33d64f0fb1da9">
+                <a href="/attack-website/versions/v11/mitigations/M1030/">
+                    Network Segmentation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-c90ea6f3fcc64056809c7031b0c6c1a9-ea807ee404ab463f801856b1aecfc3f5">
+                <a href="/attack-website/versions/v11/mitigations/M1028/">
+                    Operating System Configuration
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6">
+                <span>P-R</span>
+            <div class="expand-button collapsed" id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-header" data-toggle="collapse" data-target="#Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-body" aria-expanded="false" aria-controls="#Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-body" aria-labelledby="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-0b638d28b50145558531795cfe901367">
+                <a href="/attack-website/versions/v11/mitigations/M1027/">
+                    Password Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-9b134e28e05d450baf92397675e52e00">
+                <a href="/attack-website/versions/v11/mitigations/M1056/">
+                    Pre-compromise
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-e924a5725f6a4d88910587b68a68a384">
+                <a href="/attack-website/versions/v11/mitigations/M1026/">
+                    Privileged Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-d2da1bc2458b478db3bf03f738681fdc">
+                <a href="/attack-website/versions/v11/mitigations/M1025/">
+                    Privileged Process Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-a2ddcf21f1db4f2390bf16792a052226">
+                <a href="/attack-website/versions/v11/mitigations/M1029/">
+                    Remote Data Storage
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-e5ba8f7524624c488b7b53df23d2c4ad">
+                <a href="/attack-website/versions/v11/mitigations/M1022/">
+                    Restrict File and Directory Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-7dd21bddfc384a0385d8166e71083f20">
+                <a href="/attack-website/versions/v11/mitigations/M1044/">
+                    Restrict Library Loading
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-0dec89e86259461b8ff94bffb48d30ed">
+                <a href="/attack-website/versions/v11/mitigations/M1024/">
+                    Restrict Registry Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-fdcf4f8c65ab4e2092fc5004dd5842d6-044d784d51424f0f863b347ead5064f2">
+                <a href="/attack-website/versions/v11/mitigations/M1021/">
+                    Restrict Web-Based Content
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702">
+                <span>S-U</span>
+            <div class="expand-button collapsed" id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-header" data-toggle="collapse" data-target="#Enterprise-f75c1129e43e4ff08e411a7ba5b81702-body" aria-expanded="false" aria-controls="#Enterprise-f75c1129e43e4ff08e411a7ba5b81702-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-body" aria-labelledby="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-cd3ba9f7cb3a4fc3b2b118b712314911">
+                <a href="/attack-website/versions/v11/mitigations/M1054/">
+                    Software Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-4066d8604a7b41d29fad290d5ba77c3f">
+                <a href="/attack-website/versions/v11/mitigations/M1020/">
+                    SSL/TLS Inspection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-d931f7b708124a6f82a1236ffb8848cf">
+                <a href="/attack-website/versions/v11/mitigations/M1019/">
+                    Threat Intelligence Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-6baadf7a073041cb80699ba398a6372a">
+                <a href="/attack-website/versions/v11/mitigations/M1051/">
+                    Update Software
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-26e8893089b94771996f893a8c3d6324">
+                <a href="/attack-website/versions/v11/mitigations/M1052/">
+                    User Account Control
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-0fd6275ce8784579ae77561f3be18dab">
+                <a href="/attack-website/versions/v11/mitigations/M1018/">
+                    User Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-f75c1129e43e4ff08e411a7ba5b81702-f4da144209234f999496459165a57bea">
+                <a href="/attack-website/versions/v11/mitigations/M1017/">
+                    User Training
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-aeaf8a76905a4cdab1920949867e39ce">
+                <span>V-X</span>
+            <div class="expand-button collapsed" id="Enterprise-aeaf8a76905a4cdab1920949867e39ce-header" data-toggle="collapse" data-target="#Enterprise-aeaf8a76905a4cdab1920949867e39ce-body" aria-expanded="false" aria-controls="#Enterprise-aeaf8a76905a4cdab1920949867e39ce-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-aeaf8a76905a4cdab1920949867e39ce-body" aria-labelledby="Enterprise-aeaf8a76905a4cdab1920949867e39ce-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Enterprise-aeaf8a76905a4cdab1920949867e39ce-67eda3e85aef45e0b3091239c26afd81">
+                <a href="/attack-website/versions/v11/mitigations/M1016/">
+                    Vulnerability Scanning
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Enterprise-2af5e761ce1f4b70b0c9bd51a17f83fa">
+                <span>Y-Z</span>
+            <div class="expand-button collapsed" id="Enterprise-2af5e761ce1f4b70b0c9bd51a17f83fa-header" data-toggle="collapse" data-target="#Enterprise-2af5e761ce1f4b70b0c9bd51a17f83fa-body" aria-expanded="false" aria-controls="#Enterprise-2af5e761ce1f4b70b0c9bd51a17f83fa-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Enterprise-2af5e761ce1f4b70b0c9bd51a17f83fa-body" aria-labelledby="Enterprise-2af5e761ce1f4b70b0c9bd51a17f83fa-header">
+                    
+
+<div class="sidenav">
+            <span>No mitigations</span>
+</div>
+
+        </div>
+</div>
+
+        </div>
+</div>
+
+            
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile">
+                <a href="/attack-website/versions/v11/mitigations/mobile/">
+                    Mobile
+                </a>
+            <div class="expand-button collapsed" id="Mobile-header" data-toggle="collapse" data-target="#Mobile-body" aria-expanded="false" aria-controls="#Mobile-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-body" aria-labelledby="Mobile-header">
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-1e9a0ca0681a4649957b89d6a88db036">
+                <span>A-C</span>
+            <div class="expand-button collapsed" id="Mobile-1e9a0ca0681a4649957b89d6a88db036-header" data-toggle="collapse" data-target="#Mobile-1e9a0ca0681a4649957b89d6a88db036-body" aria-expanded="false" aria-controls="#Mobile-1e9a0ca0681a4649957b89d6a88db036-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-1e9a0ca0681a4649957b89d6a88db036-body" aria-labelledby="Mobile-1e9a0ca0681a4649957b89d6a88db036-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-1e9a0ca0681a4649957b89d6a88db036-cb77b38971694d279c0e4fb38b578fee">
+                <a href="/attack-website/versions/v11/mitigations/M1013/">
+                    Application Developer Guidance
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-1e9a0ca0681a4649957b89d6a88db036-cc8c23d041a847a0b555769fa2e8541e">
+                <a href="/attack-website/versions/v11/mitigations/M1002/">
+                    Attestation
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-685e2b8557934e8b8a3458784184ff39">
+                <span>D-F</span>
+            <div class="expand-button collapsed" id="Mobile-685e2b8557934e8b8a3458784184ff39-header" data-toggle="collapse" data-target="#Mobile-685e2b8557934e8b8a3458784184ff39-body" aria-expanded="false" aria-controls="#Mobile-685e2b8557934e8b8a3458784184ff39-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-685e2b8557934e8b8a3458784184ff39-body" aria-labelledby="Mobile-685e2b8557934e8b8a3458784184ff39-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-685e2b8557934e8b8a3458784184ff39-29a0cb25018b432e903a161935ed077a">
+                <a href="/attack-website/versions/v11/mitigations/M1010/">
+                    Deploy Compromised Device Detection Method
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-685e2b8557934e8b8a3458784184ff39-9e03124e7aab4950ad190c0efc093650">
+                <a href="/attack-website/versions/v11/mitigations/M1009/">
+                    Encrypt Network Traffic
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-685e2b8557934e8b8a3458784184ff39-b6c0fa7330b343a7918779eb936f10cb">
+                <a href="/attack-website/versions/v11/mitigations/M1012/">
+                    Enterprise Policy
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-670d55c679814fa6b870cc8e7e371484">
+                <span>G-I</span>
+            <div class="expand-button collapsed" id="Mobile-670d55c679814fa6b870cc8e7e371484-header" data-toggle="collapse" data-target="#Mobile-670d55c679814fa6b870cc8e7e371484-body" aria-expanded="false" aria-controls="#Mobile-670d55c679814fa6b870cc8e7e371484-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-670d55c679814fa6b870cc8e7e371484-body" aria-labelledby="Mobile-670d55c679814fa6b870cc8e7e371484-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-670d55c679814fa6b870cc8e7e371484-9874499aaf0c4236b9ffc5c62098a5f8">
+                <a href="/attack-website/versions/v11/mitigations/M1014/">
+                    Interconnection Filtering
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-df32552308604c26a88dd78dc0b050ad">
+                <span>J-L</span>
+            <div class="expand-button collapsed" id="Mobile-df32552308604c26a88dd78dc0b050ad-header" data-toggle="collapse" data-target="#Mobile-df32552308604c26a88dd78dc0b050ad-body" aria-expanded="false" aria-controls="#Mobile-df32552308604c26a88dd78dc0b050ad-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-df32552308604c26a88dd78dc0b050ad-body" aria-labelledby="Mobile-df32552308604c26a88dd78dc0b050ad-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-df32552308604c26a88dd78dc0b050ad-42bc164f105d458e93bf49394b939ab8">
+                <a href="/attack-website/versions/v11/mitigations/M1003/">
+                    Lock Bootloader
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-cc264ca413ed4daab51314aaf7045d21">
+                <span>M-O</span>
+            <div class="expand-button collapsed" id="Mobile-cc264ca413ed4daab51314aaf7045d21-header" data-toggle="collapse" data-target="#Mobile-cc264ca413ed4daab51314aaf7045d21-body" aria-expanded="false" aria-controls="#Mobile-cc264ca413ed4daab51314aaf7045d21-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-cc264ca413ed4daab51314aaf7045d21-body" aria-labelledby="Mobile-cc264ca413ed4daab51314aaf7045d21-header">
+                    
+
+<div class="sidenav">
+            <span>No mitigations</span>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-f46143be038c483980af899111d48275">
+                <span>P-R</span>
+            <div class="expand-button collapsed" id="Mobile-f46143be038c483980af899111d48275-header" data-toggle="collapse" data-target="#Mobile-f46143be038c483980af899111d48275-body" aria-expanded="false" aria-controls="#Mobile-f46143be038c483980af899111d48275-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-f46143be038c483980af899111d48275-body" aria-labelledby="Mobile-f46143be038c483980af899111d48275-header">
+                    
+
+<div class="sidenav">
+            <span>No mitigations</span>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-4ade9493ca3a49ae8fbc8e9457502387">
+                <span>S-U</span>
+            <div class="expand-button collapsed" id="Mobile-4ade9493ca3a49ae8fbc8e9457502387-header" data-toggle="collapse" data-target="#Mobile-4ade9493ca3a49ae8fbc8e9457502387-body" aria-expanded="false" aria-controls="#Mobile-4ade9493ca3a49ae8fbc8e9457502387-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-4ade9493ca3a49ae8fbc8e9457502387-body" aria-labelledby="Mobile-4ade9493ca3a49ae8fbc8e9457502387-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-4ade9493ca3a49ae8fbc8e9457502387-9634fcbda4684aa68ecf1ab3bb7de67b">
+                <a href="/attack-website/versions/v11/mitigations/M1001/">
+                    Security Updates
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-4ade9493ca3a49ae8fbc8e9457502387-599dc00a51db4b6fb26328139c987cf9">
+                <a href="/attack-website/versions/v11/mitigations/M1004/">
+                    System Partition Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-4ade9493ca3a49ae8fbc8e9457502387-cac4a241b2804bbbb5768509e83e1e18">
+                <a href="/attack-website/versions/v11/mitigations/M1006/">
+                    Use Recent OS Version
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="Mobile-4ade9493ca3a49ae8fbc8e9457502387-03f75cd8b9794b9285b492876f83c611">
+                <a href="/attack-website/versions/v11/mitigations/M1011/">
+                    User Guidance
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-b414f584a2ff413095f4debf500a288a">
+                <span>V-X</span>
+            <div class="expand-button collapsed" id="Mobile-b414f584a2ff413095f4debf500a288a-header" data-toggle="collapse" data-target="#Mobile-b414f584a2ff413095f4debf500a288a-body" aria-expanded="false" aria-controls="#Mobile-b414f584a2ff413095f4debf500a288a-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-b414f584a2ff413095f4debf500a288a-body" aria-labelledby="Mobile-b414f584a2ff413095f4debf500a288a-header">
+                    
+
+<div class="sidenav">
+            <span>No mitigations</span>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="Mobile-7fed853388aa4abba81eeb0c3c013d0d">
+                <span>Y-Z</span>
+            <div class="expand-button collapsed" id="Mobile-7fed853388aa4abba81eeb0c3c013d0d-header" data-toggle="collapse" data-target="#Mobile-7fed853388aa4abba81eeb0c3c013d0d-body" aria-expanded="false" aria-controls="#Mobile-7fed853388aa4abba81eeb0c3c013d0d-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="Mobile-7fed853388aa4abba81eeb0c3c013d0d-body" aria-labelledby="Mobile-7fed853388aa4abba81eeb0c3c013d0d-header">
+                    
+
+<div class="sidenav">
+            <span>No mitigations</span>
+</div>
+
+        </div>
+</div>
+
+        </div>
+</div>
+
+            
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS">
+                <a href="/attack-website/versions/v11/mitigations/ics/">
+                    ICS
+                </a>
+            <div class="expand-button collapsed" id="ICS-header" data-toggle="collapse" data-target="#ICS-body" aria-expanded="false" aria-controls="#ICS-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-body" aria-labelledby="ICS-header">
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-616115b5a8de42df86fccbb369805fb3">
+                <span>A-C</span>
+            <div class="expand-button collapsed" id="ICS-616115b5a8de42df86fccbb369805fb3-header" data-toggle="collapse" data-target="#ICS-616115b5a8de42df86fccbb369805fb3-body" aria-expanded="false" aria-controls="#ICS-616115b5a8de42df86fccbb369805fb3-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-616115b5a8de42df86fccbb369805fb3-body" aria-labelledby="ICS-616115b5a8de42df86fccbb369805fb3-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-12b6e6056fa04054aacd27207a630dc8">
+                <a href="/attack-website/versions/v11/mitigations/M0801/">
+                    Access Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-707b469a027e486a80e4afb0efaff479">
+                <a href="/attack-website/versions/v11/mitigations/M0936/">
+                    Account Use Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-e9dddaefe5bb4a658b6ebd5645759595">
+                <a href="/attack-website/versions/v11/mitigations/M0915/">
+                    Active Directory Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-07f1474d221b455099139e1c36d1c66a">
+                <a href="/attack-website/versions/v11/mitigations/M0949/">
+                    Antivirus/Antimalware
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-5ab35613e36c48b89ec862a978be01e5">
+                <a href="/attack-website/versions/v11/mitigations/M0913/">
+                    Application Developer Guidance
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-bbdcae0857f44c52ba4611abeb357f57">
+                <a href="/attack-website/versions/v11/mitigations/M0948/">
+                    Application Isolation and Sandboxing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-06e2c21720144611adf85eaf0fa31887">
+                <a href="/attack-website/versions/v11/mitigations/M0947/">
+                    Audit
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-b1b2642e197b4e2a82c95665a018874e">
+                <a href="/attack-website/versions/v11/mitigations/M0800/">
+                    Authorization Enforcement
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-d5832ad0074e4d39840d95326e68eaaa">
+                <a href="/attack-website/versions/v11/mitigations/M0946/">
+                    Boot Integrity
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-d54b67dab76546fbb032ec161af12887">
+                <a href="/attack-website/versions/v11/mitigations/M0945/">
+                    Code Signing
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-616115b5a8de42df86fccbb369805fb3-e9dd1b6bb0854e2b9f8c1b4feed5eee9">
+                <a href="/attack-website/versions/v11/mitigations/M0802/">
+                    Communication Authenticity
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-a1b7e21b1975434e9111843536505c93">
+                <span>D-F</span>
+            <div class="expand-button collapsed" id="ICS-a1b7e21b1975434e9111843536505c93-header" data-toggle="collapse" data-target="#ICS-a1b7e21b1975434e9111843536505c93-body" aria-expanded="false" aria-controls="#ICS-a1b7e21b1975434e9111843536505c93-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-a1b7e21b1975434e9111843536505c93-body" aria-labelledby="ICS-a1b7e21b1975434e9111843536505c93-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-37d39fa01bd94a0da3d74c73fdf9b62c">
+                <a href="/attack-website/versions/v11/mitigations/M0953/">
+                    Data Backup
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-5f06fbf60f4a4ec79af77bb79630eae3">
+                <a href="/attack-website/versions/v11/mitigations/M0803/">
+                    Data Loss Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-b569bc9e51d6435aae0bf35a717dc0c7">
+                <a href="/attack-website/versions/v11/mitigations/M0942/">
+                    Disable or Remove Feature or Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-526dd1f271b045f4a3b426fd17243cb0">
+                <a href="/attack-website/versions/v11/mitigations/M0808/">
+                    Encrypt Network Traffic
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-bfbdcdcedb2447adaedac189b9d09ed5">
+                <a href="/attack-website/versions/v11/mitigations/M0941/">
+                    Encrypt Sensitive Information
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-e95c387bc94a4d6fb2f01f2381c221ea">
+                <a href="/attack-website/versions/v11/mitigations/M0938/">
+                    Execution Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-50eccfb712ba4d53b01f737474a07f14">
+                <a href="/attack-website/versions/v11/mitigations/M0950/">
+                    Exploit Protection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a1b7e21b1975434e9111843536505c93-e6485dde5a654d258cd635e09348ff76">
+                <a href="/attack-website/versions/v11/mitigations/M0937/">
+                    Filter Network Traffic
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-7f527d1ed5364a8ca549e8455dffd260">
+                <span>G-I</span>
+            <div class="expand-button collapsed" id="ICS-7f527d1ed5364a8ca549e8455dffd260-header" data-toggle="collapse" data-target="#ICS-7f527d1ed5364a8ca549e8455dffd260-body" aria-expanded="false" aria-controls="#ICS-7f527d1ed5364a8ca549e8455dffd260-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-7f527d1ed5364a8ca549e8455dffd260-body" aria-labelledby="ICS-7f527d1ed5364a8ca549e8455dffd260-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-7f527d1ed5364a8ca549e8455dffd260-143f7b1752114def834c05cd5dfe3db8">
+                <a href="/attack-website/versions/v11/mitigations/M0804/">
+                    Human User Authentication
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-a0d98ea2ab034c61a6a9a31f41974cf1">
+                <span>J-L</span>
+            <div class="expand-button collapsed" id="ICS-a0d98ea2ab034c61a6a9a31f41974cf1-header" data-toggle="collapse" data-target="#ICS-a0d98ea2ab034c61a6a9a31f41974cf1-body" aria-expanded="false" aria-controls="#ICS-a0d98ea2ab034c61a6a9a31f41974cf1-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-a0d98ea2ab034c61a6a9a31f41974cf1-body" aria-labelledby="ICS-a0d98ea2ab034c61a6a9a31f41974cf1-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a0d98ea2ab034c61a6a9a31f41974cf1-04391766123249888d65c286bb717fdb">
+                <a href="/attack-website/versions/v11/mitigations/M0935/">
+                    Limit Access to Resource Over Network
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-a0d98ea2ab034c61a6a9a31f41974cf1-3ae9a38d20eb47e6b67cb7776f346902">
+                <a href="/attack-website/versions/v11/mitigations/M0934/">
+                    Limit Hardware Installation
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-e59d21c2e0ca4862a6ee9d509521a589">
+                <span>M-O</span>
+            <div class="expand-button collapsed" id="ICS-e59d21c2e0ca4862a6ee9d509521a589-header" data-toggle="collapse" data-target="#ICS-e59d21c2e0ca4862a6ee9d509521a589-body" aria-expanded="false" aria-controls="#ICS-e59d21c2e0ca4862a6ee9d509521a589-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-e59d21c2e0ca4862a6ee9d509521a589-body" aria-labelledby="ICS-e59d21c2e0ca4862a6ee9d509521a589-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-454f59cb07f149d18a521db32fc6e25a">
+                <a href="/attack-website/versions/v11/mitigations/M0805/">
+                    Mechanical Protection Layers
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-d33a0cd1ab264d55b4fed8d80cf58d0c">
+                <a href="/attack-website/versions/v11/mitigations/M0806/">
+                    Minimize Wireless Signal Propagation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-ef5b5b44b67b461ebb9183ac239b4111">
+                <a href="/attack-website/versions/v11/mitigations/M0816/">
+                    Mitigation Limited or Not Effective
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-e27f6e712d4c45d5a4ce33da5d4c3cda">
+                <a href="/attack-website/versions/v11/mitigations/M0932/">
+                    Multi-factor Authentication
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-bcf92b7ca0d44702a6a4b823b68a3fdb">
+                <a href="/attack-website/versions/v11/mitigations/M0807/">
+                    Network Allowlists
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-5e14149f53374f6ca05ed3fdb0d0164b">
+                <a href="/attack-website/versions/v11/mitigations/M0931/">
+                    Network Intrusion Prevention
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-6f2ae660dcac456e8e252253c27f462e">
+                <a href="/attack-website/versions/v11/mitigations/M0930/">
+                    Network Segmentation
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-0952c6cbf85f4c38a4420825c0d247e8">
+                <a href="/attack-website/versions/v11/mitigations/M0928/">
+                    Operating System Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-c55c94b854e04d9f91933bbe7c18ba5d">
+                <a href="/attack-website/versions/v11/mitigations/M0809/">
+                    Operational Information Confidentiality
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-e59d21c2e0ca4862a6ee9d509521a589-3fff0ce03e5b4e148fddd5dc8de41f4c">
+                <a href="/attack-website/versions/v11/mitigations/M0810/">
+                    Out-of-Band Communications Channel
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-03e33e49d07d40719b5918a7fbcc51c8">
+                <span>P-R</span>
+            <div class="expand-button collapsed" id="ICS-03e33e49d07d40719b5918a7fbcc51c8-header" data-toggle="collapse" data-target="#ICS-03e33e49d07d40719b5918a7fbcc51c8-body" aria-expanded="false" aria-controls="#ICS-03e33e49d07d40719b5918a7fbcc51c8-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-03e33e49d07d40719b5918a7fbcc51c8-body" aria-labelledby="ICS-03e33e49d07d40719b5918a7fbcc51c8-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-03e33e49d07d40719b5918a7fbcc51c8-76912d182e314cb3b2b6be4a9e6a71a1">
+                <a href="/attack-website/versions/v11/mitigations/M0927/">
+                    Password Policies
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-03e33e49d07d40719b5918a7fbcc51c8-430006fc9a57411ebace83281a905487">
+                <a href="/attack-website/versions/v11/mitigations/M0926/">
+                    Privileged Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-03e33e49d07d40719b5918a7fbcc51c8-2d9eed15bdd742eeb527775b2dd491eb">
+                <a href="/attack-website/versions/v11/mitigations/M0811/">
+                    Redundancy of Service
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-03e33e49d07d40719b5918a7fbcc51c8-1472c4103e6c4682bd0f7acd4bc9b717">
+                <a href="/attack-website/versions/v11/mitigations/M0922/">
+                    Restrict File and Directory Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-03e33e49d07d40719b5918a7fbcc51c8-37a5a873467c47ae859311076e5a2128">
+                <a href="/attack-website/versions/v11/mitigations/M0944/">
+                    Restrict Library Loading
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-03e33e49d07d40719b5918a7fbcc51c8-403d8e40b6eb4e358e9c92905dab6b9b">
+                <a href="/attack-website/versions/v11/mitigations/M0924/">
+                    Restrict Registry Permissions
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-03e33e49d07d40719b5918a7fbcc51c8-a5154ee558f844d2b1fdf0b69ed54bae">
+                <a href="/attack-website/versions/v11/mitigations/M0921/">
+                    Restrict Web-Based Content
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388">
+                <span>S-U</span>
+            <div class="expand-button collapsed" id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-header" data-toggle="collapse" data-target="#ICS-4cac257a7c5d4e3aa41a2570c5a57388-body" aria-expanded="false" aria-controls="#ICS-4cac257a7c5d4e3aa41a2570c5a57388-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-body" aria-labelledby="ICS-4cac257a7c5d4e3aa41a2570c5a57388-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-013617dc9bbc48baab93a7b00479dde8">
+                <a href="/attack-website/versions/v11/mitigations/M0812/">
+                    Safety Instrumented Systems
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-9568f6f06854459c85878d044c8df3e4">
+                <a href="/attack-website/versions/v11/mitigations/M0954/">
+                    Software Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-01ed1ea8d9a440c9a03f87e73c988d2b">
+                <a href="/attack-website/versions/v11/mitigations/M0813/">
+                    Software Process and Device Authentication
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-340b2e3895d74029bc483511fefcc64f">
+                <a href="/attack-website/versions/v11/mitigations/M0920/">
+                    SSL/TLS Inspection
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-f8c22b336b3f4a4ea23fa264fb673c8b">
+                <a href="/attack-website/versions/v11/mitigations/M0814/">
+                    Static Network Configuration
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-a4e1d96aca604e9d9773b57774b3358e">
+                <a href="/attack-website/versions/v11/mitigations/M0817/">
+                    Supply Chain Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-f9b198d604524892949a52b35b08b875">
+                <a href="/attack-website/versions/v11/mitigations/M0919/">
+                    Threat Intelligence Program
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-c8b3e60c15f044fc9f5845d12d057187">
+                <a href="/attack-website/versions/v11/mitigations/M0951/">
+                    Update Software
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-8e1f41d356d841c7b43b43b4ffa12504">
+                <a href="/attack-website/versions/v11/mitigations/M0918/">
+                    User Account Management
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-4cac257a7c5d4e3aa41a2570c5a57388-d5925fe7ee4f4828b124c94ed8cd7bf3">
+                <a href="/attack-website/versions/v11/mitigations/M0917/">
+                    User Training
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-1fcf75562b764f50897718416e90b054">
+                <span>V-X</span>
+            <div class="expand-button collapsed" id="ICS-1fcf75562b764f50897718416e90b054-header" data-toggle="collapse" data-target="#ICS-1fcf75562b764f50897718416e90b054-body" aria-expanded="false" aria-controls="#ICS-1fcf75562b764f50897718416e90b054-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-1fcf75562b764f50897718416e90b054-body" aria-labelledby="ICS-1fcf75562b764f50897718416e90b054-header">
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-1fcf75562b764f50897718416e90b054-a2adefbc3e724e7e96080647373355e8">
+                <a href="/attack-website/versions/v11/mitigations/M0916/">
+                    Vulnerability Scanning
+                </a>
+            </div>
+</div>
+
+                    
+
+<div class="sidenav">
+            <div class="sidenav-head " id="ICS-1fcf75562b764f50897718416e90b054-f96c7d119d7f461e928c5f4c8bc6253e">
+                <a href="/attack-website/versions/v11/mitigations/M0815/">
+                    Watchdog Timers
+                </a>
+            </div>
+</div>
+
+        </div>
+</div>
+
+                    
+
+<div class="sidenav">
+        <div class="sidenav-head  " id="ICS-c2fa7abc1d9b4d5ca3d522de8bf54378">
+                <span>Y-Z</span>
+            <div class="expand-button collapsed" id="ICS-c2fa7abc1d9b4d5ca3d522de8bf54378-header" data-toggle="collapse" data-target="#ICS-c2fa7abc1d9b4d5ca3d522de8bf54378-body" aria-expanded="false" aria-controls="#ICS-c2fa7abc1d9b4d5ca3d522de8bf54378-body"></div>
+
+        </div>
+        <div class="sidenav-body collapse" id="ICS-c2fa7abc1d9b4d5ca3d522de8bf54378-body" aria-labelledby="ICS-c2fa7abc1d9b4d5ca3d522de8bf54378-header">
+                    
+
+<div class="sidenav">
+            <span>No mitigations</span>
+</div>
+
+        </div>
+</div>
+
+        </div>
+</div>
+
+    </div>
+</div>
+ 
+    </div>
+<!--start-indexing-for-search-->
+    </div>
+
+    
+     
+    <div class="tab-content col-xl-9 col-lg-9 col-md-8 pt-4" id="v-tabContent">
+        <div class="tab-pane fade show active" id="v-attckmatrix" role="tabpanel" aria-labelledby="v-attckmatrix-tab">
+    
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/attack-website/versions/v11/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/attack-website/versions/v11/mitigations">Mitigations</a></li>
+        <li class="breadcrumb-item">Credentials in Registry Mitigation</li>
+    </ol>
+    <div class="tab-pane fade show active" id="v-" role="tabpanel" aria-labelledby="v--tab"></div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container-fluid">
+                    <h1>
+                        Credentials in Registry Mitigation
+                    </h1>
+
+                            <div class="col-md-9 p-0">
+    <div class="card danger-card">
+        <div class="card-header">
+            <h5 class="mb-0">Deprecation Warning</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                        Do not store credentials within the Registry. Proactively search for credentials within Registry keys and attempt to remediate the risk. If necessary software must store credentials, then ensure those accounts have limited permissions so they cannot be abused if obtained by an adversary.
+
+            </p>
+        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+            <!--stop-indexing-for-search-->
+            <!-- search overlay for entire page -- not displayed inline -->
+            <div class="overlay search" id="search-overlay" style="display: none;">
+    <div class="overlay-inner">
+        <!-- text input for searching -->
+        <div class="search-header">
+            <div class="search-input">
+                <input type="text" id="search-input" placeholder="search">
+            </div>
+            <div class="search-icons">
+                <div class="search-parsing-icon spinner-border" style="display: none" id="search-parsing-icon"></div>
+                <div class="close-search-icon" id="close-search-icon">&times;</div>
+            </div>
+        </div>
+        <!-- results and controls for loading more results -->
+        <div id="search-body" class="search-body">
+            <div class="results" id="search-results">
+                <!-- content will be appended here on search -->
+            </div>
+            <div id="load-more-results" class="load-more-results">
+                <button class="btn btn-default" id="load-more-results-button">load more results</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <div class="row flex-grow-0 flex-shrink-1">
+            <!-- footer elements -->
+            <footer class="col footer p-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4 col-sm-4 col-md-3">  
+                            <div class="footer-center-responsive my-auto">
+                                <a href="https://www.mitre.org" target="_blank" rel="noopener" aria-label="MITRE">
+                                    <img src="/attack-website/versions/v11/theme/images/mitrelogowhiteontrans.gif" class="mitre-logo-wtrans">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-2 col-sm-2 footer-responsive-break"></div>
+                        <div class="col-6 col-sm-6 text-center">  
+                            <p>
+                                 © 2015-2022, The MITRE Corporation. MITRE ATT&CK and ATT&CK are registered trademarks of The MITRE Corporation.
+                            </p>
+                            <div class="row">
+                    
+                                <div class="col text-right">
+                                    <small>
+                                        <a href="/attack-website/versions/v11/resources/privacy" class="footer-link">Privacy Policy</a>
+                                    </small>
+                                </div>
+                                <div class="col text-center">
+                                    <small>
+                                        <a href="/attack-website/versions/v11/resources/terms-of-use" class="footer-link">Terms of Use</a>
+                                    </small>
+                                </div>
+                                <div class="col  text-left ">
+                                    <small>
+                                        <a href="/attack-website/versions/v11/resources/changelog.html" class="footer-link" data-toggle="tooltip" data-placement="top" data-html="true" title="ATT&amp;CK content v11.3&#013;Website  v3.6.7">ATT&CK v11.3</a>
+                                    </small>
+                                </div>
+            
+                            </div>
+                        </div>
+                        <div class="w-100 p-2 footer-responsive-break"></div>
+                            <div class="col">
+                                <div class="footer-float-right-responsive-brand">
+                                    <div class="mb-1">
+                                        <a href="https://twitter.com/MITREattack" class="btn btn-primary w-100">
+                                            <!-- <i class="fa fa-twitter"></i> -->
+                                            <img src="/attack-website/versions/v11/theme/images/twitter.png" class="mr-1 twitter-icon">
+                                            <b>@MITREattack</b>
+                                        </a>
+                                    </div>
+                                    <div class="">
+                                        <a href="/attack-website/versions/v11/contact" class="btn btn-primary w-100">
+                                            Contact
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+<!--stopindex-->
+
+</div>
+        <!--SCRIPTS-->
+    <script src="/attack-website/versions/v11/theme/scripts/jquery-3.5.1.min.js"></script>
+    <script src="/attack-website/versions/v11/theme/scripts/popper.min.js"></script>
+    <script src="/attack-website/versions/v11/theme/scripts/bootstrap-select.min.js"></script>
+    <script src="/attack-website/versions/v11/theme/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/attack-website/versions/v11/theme/scripts/site.js?3149"></script>
+    <script src="/attack-website/versions/v11/theme/scripts/flexsearch.es5.js"></script> 
+    <script src="/attack-website/versions/v11/theme/scripts/localforage.min.js"></script>
+    <script src="/attack-website/versions/v11/theme/scripts/settings.js?7058"></script>
+    <script src="/attack-website/versions/v11/theme/scripts/search_babelized.js"></script>
+
+    <!--SCRIPTS-->
+    <script src="/attack-website/versions/v11/theme/scripts/navigation.js"></script>
+</body>
+</html>

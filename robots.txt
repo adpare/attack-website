@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: attack-website/previous/
+Disallow: attack-website/versions/
